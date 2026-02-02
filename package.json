@@ -1,0 +1,25 @@
+{
+  "name": "itprojectportfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx @11ty/eleventy --input=src --output=build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fenibazil/ITProjectPortfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fenibazil/ITProjectPortfolio/issues"
+  },
+  "homepage": "https://github.com/fenibazil/ITProjectPortfolio#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-navigation": "^1.0.5"
+  }
+}

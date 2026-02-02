@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+
+  <head>
+    {% include 'snippets/head.njk' %}
+  </head>
+
+{% include 'snippets/header.njk' %}
+    <main>
+      <div class="row d-flex justify-content-center">
+        <div>
+          <h1>{{ title }}</h1>
+
+          <h2>{{ subtitle }}</h2>
+
+          {{ content }}
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% include 'snippets/footer.njk' %}
+
+
+</html>

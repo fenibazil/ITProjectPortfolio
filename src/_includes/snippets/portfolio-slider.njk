@@ -1,0 +1,21 @@
+{% for entry in collections.all | eleventyNavigation %}
+{% if child.title == Портфолио %}
+<div class="container-fluid" data-module="portfolioSlider">
+  <div class="portfolio-slider swiper" id="portfolio-slider">
+    {% if entry.children.length %}
+      <div class="portfolio-slider_list swiper-wrapper">
+        {% for child in entry.children %}
+          <div class="portfolio-slider_slide  swiper-slide">
+              <a href="{{ metadata.siteURLPostfix }}{{ child.url }}index.html">
+                <img class="portfolio-slider_image" src="{{ metadata.siteURLPostfix }}{{ child.previewImage }}" alt="{{ child.title }}" loading="lazy">
+              </a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-prev js_portfolio-slider-button-prev"></div>
+      <div class="swiper-button-next js_portfolio-slider-button-next"></div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% endfor %}

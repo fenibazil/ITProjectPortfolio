@@ -1,13 +1,12 @@
 // Включаем в сборку файл стилей
-import '../styles/styles.scss';
+require('../styles/styles.scss');
 
 // Библиотеки
-import * as bootstrap from 'bootstrap';
-window.bootstrap = bootstrap; 
+require('bootstrap/js/dist/modal');
+const bootstrap = window.bootstrap = require('bootstrap');
 
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-import Choices from 'choices.js';
+//require('choices.js/public/assets/scripts/choices.min.js');
+
 
 // Либа для инициализации модулей https://www.npmjs.com/package/module-dispatcher
 // Вызывает метод init() у модулей на указанных страницах
@@ -36,6 +35,10 @@ app.docReady = function (f) {
 
 // базовые модули
 app.defaultInit = require('./partials/default-init');
+
+
+// Блоки
+app.defaultInit = require('./partials/portfolio-slider');
 
 // Инициализация нужных модулей на всех страницах, отключать/подключать модули по необходимости
 // если модуль нужен только для одной страницы - подключать через ModuleDispatcher на конкретной странице

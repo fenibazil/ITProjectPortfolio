@@ -1,12 +1,9 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
-
-  <head>
-    {% include 'snippets/head.njk' %}
-  </head>
-
+{% include 'snippets/head.njk' %}
+<body>
 {% include 'snippets/header.njk' %}
-    <main>
+    <div class="container">
       <div class="row d-flex justify-content-center">
         <div>
           <h1>{{ title }}</h1>
@@ -18,9 +15,8 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
 
 {% include 'snippets/footer.njk' %}
-
-
+</body>
 </html>

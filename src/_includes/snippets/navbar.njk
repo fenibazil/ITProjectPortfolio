@@ -1,14 +1,14 @@
-<nav>
+<nav class="">
   <ul>
     {% for entry in collections.all | eleventyNavigation %}
       <li class="{% if entry.url == page.url %}active{% endif %}">
-        <a href="{{ metadata.sitePostfixURL }}{{ entry.url }}">{{ entry.title }}</a>
+        <a href="{{ metadata.siteURLPostfix }}{{ entry.url }}">{{ entry.title }}</a>
         
         {% if entry.children.length %}
           <ul>
             {% for child in entry.children %}
               <li>
-                <a href="{{ metadata.sitePostfixURL }}{{ child.url }}">{{ child.title }}</a>
+                <a href="{{ metadata.siteURLPostfix }}{{ child.url }}index.html">{{ child.title }}</a>
               </li>
             {% endfor %}
           </ul>

@@ -2,8 +2,10 @@
 @import "bootstrap/scss/bootstrap";
 
 @import "@fancyapps/ui/dist/fancybox/fancybox.css";
-@import "choices.js/public/assets/styles/choices.css";
+//@import "choices.js/public/assets/styles/choices.css";
 @import "swiper/css";
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
 
 // Шрифты
 //@import '../fonts/**/*.css';
@@ -13,3 +15,6 @@
 @import 'variables';
 @import 'mixins';
 @import 'styleguide';
+
+// Блоки
+@import 'partials/portfolio-slider.scss';

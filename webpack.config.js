@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname),
             filename: 'docs/js/[name].js',
-            clean: false
+            library: 'app'
         },
 
         devtool: isProd ? false : 'source-map',
@@ -71,7 +71,7 @@ module.exports = (env, argv) => {
         optimization: {
             minimize: isProd,
             minimizer: [
-                new TerserPlugin({ extractComments: false }),
+                //new TerserPlugin({ extractComments: false }),
                 new CssMinimizerPlugin()
             ]
         },
@@ -87,6 +87,16 @@ module.exports = (env, argv) => {
             })
         ].filter(Boolean),
 
-        stats: 'errors-only'
+        stats: {
+        builtAt: true,
+        children: false,
+        entrypoints: false,
+        errors: true,
+        hash: false,
+        modules: false,
+        version: false,
+        warnings: false
+        },
+        devtool: false
     };
 };

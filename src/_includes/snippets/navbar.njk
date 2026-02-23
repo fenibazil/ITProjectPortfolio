@@ -1,14 +1,17 @@
-<nav class="">
-  <ul>
+<nav class="top-menu js_top-menu">
+  <div class="top-menu__toggle js_top-menu-toggle">
+    <span></span>
+  </div>
+  <ul class="top-menu__list js_top-menu-list">
     {% for entry in collections.all | eleventyNavigation %}
-      <li class="{% if entry.url == page.url %}active{% endif %}">
-        <a href="{{ metadata.siteURLPostfix }}{{ entry.url }}">{{ entry.title }}</a>
+      <li class="top-menu__item js_top-menu-item {% if entry.url == page.url %}active{% endif %}">
+        <a class="top-menu__item-link" href="{{ metadata.siteURLPostfix }}{{ entry.url }}">{{ entry.title }}</a>
         
         {% if entry.children.length %}
-          <ul>
+          <ul class="top-menu__sublist js_top-menu-sublist">
             {% for child in entry.children %}
-              <li>
-                <a href="{{ metadata.siteURLPostfix }}{{ child.url }}index.html">{{ child.title }}</a>
+              <li class="top-menu__sub-item js_top-menu-sub-item {% if entry.url == page.url %}active{% endif %}">
+                <a class="top-menu__item-link" href="{{ metadata.siteURLPostfix }}{{ child.url }}index.html">{{ child.title }}</a>
               </li>
             {% endfor %}
           </ul>

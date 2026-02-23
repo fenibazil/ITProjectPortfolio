@@ -35,6 +35,7 @@ app.docReady = function (f) {
 
 // базовые модули
 app.defaultInit = require('./partials/default-init');
+app.topMenu = require('./partials/top-menu');
 
 
 // Блоки
@@ -45,3 +46,4 @@ app.defaultInit = require('./partials/portfolio-slider');
 module.exports = app;
 
 app.defaultInit.init();
+app.topMenu.init();

@@ -1,0 +1,55 @@
+.to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 48px;
+  height: 48px;
+
+  cursor: pointer;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* стрелка */
+  &::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #fff;
+    border-top: 2px solid #fff;
+    transform: rotate(45deg);
+    margin-top: 4px;
+  }
+
+  /* скрыто по умолчанию */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease,
+    visibility .25s;
+
+  z-index: 1000;
+
+  /* состояние показа */
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* hover только для десктопа */
+  @include respond-to(lg) {
+    &:hover {
+        background: #fff;
+        color: #000;
+    }
+  }
+}

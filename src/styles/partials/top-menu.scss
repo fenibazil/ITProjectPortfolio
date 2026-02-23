@@ -1,0 +1,113 @@
+.top-menu {
+
+  &__toggle {
+    display: block;
+    cursor: pointer;
+    width: 32px;
+    height: 24px;
+    position: relative;
+
+    span,
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #000;
+      transition: .3s;
+      will-change: transform;
+    }
+
+    span { top: 50%; transform: translateY(-50%); }
+    &:before { top: 0; }
+    &:after { bottom: 0; }
+
+    @include respond-to(lg) {
+      display: none;
+    }
+
+    &.is-open {
+
+        span {
+        opacity: 0;
+        transform: translateY(-50%) scaleX(0);
+        }
+
+        &:before {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        }
+
+        &:after {
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+        }
+    }
+  }
+
+  &__list {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: $white-design;
+    z-index: 999;
+
+    &.is-open {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+    }
+
+    @include respond-to(lg) {
+      display: flex;
+      gap: 24px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+  }
+  &__item-link {
+    padding: 8px;
+    @include respond-to(lg) {
+      padding: 0;
+    }
+  }
+
+
+  &__sublist {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    background-color: $white-design;
+    margin-left: 8px;
+    
+
+    @include respond-to(lg) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin: 0;
+    }
+  }
+
+  &__item.is-open > &__sublist {
+    display: flex;
+  }
+
+  @include respond-to(lg) {
+    &__item:hover > &__sublist {
+      display: block;
+    }
+  }
+}

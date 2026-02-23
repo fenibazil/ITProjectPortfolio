@@ -8,7 +8,29 @@ var app;
 // Функции для инициализации на всех страницах
 
 module.exports = function () {
-  function init() {}
+  function init() {
+    var toTopButton = document.querySelector('.js_to-top');
+    if (toTopButton) {
+      var toggleVisibility = function toggleVisibility() {
+        if (window.scrollY > SHOW_OFFSET) {
+          toTopButton.classList.add('is-visible');
+        } else {
+          toTopButton.classList.remove('is-visible');
+        }
+      };
+      var SHOW_OFFSET = 0;
+      window.addEventListener('scroll', toggleVisibility, {
+        passive: true
+      });
+      toggleVisibility();
+      toTopButton.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+  }
   return {
     init: init
   };
@@ -31,7 +53,7 @@ module.exports = function () {
       slidesPerView: 1,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 5000,
         // 5 секунд
         disableOnInteraction: false,
         // не останавливать после клика
@@ -40,6 +62,61 @@ module.exports = function () {
       navigation: {
         nextEl: '.js_portfolio-slider-button-next',
         prevEl: '.js_portfolio-slider-button-prev'
+      }
+    });
+  }
+  return {
+    init: init
+  };
+}();
+
+/***/ },
+
+/***/ 397
+(module) {
+
+module.exports = function () {
+  function init() {
+    var menu = document.querySelector('.js_top-menu');
+    if (!menu) return;
+    var toggle = menu.querySelector('.js_top-menu-toggle');
+    var list = menu.querySelector('.js_top-menu-list');
+    var items = menu.querySelectorAll('.js_top-menu-item');
+    var LG_BREAKPOINT = 992;
+    function isMobile() {
+      return window.innerWidth < LG_BREAKPOINT;
+    }
+    toggle === null || toggle === void 0 || toggle.addEventListener('click', function () {
+      list.classList.toggle('is-open');
+      toggle.classList.toggle('is-open');
+    });
+    items.forEach(function (item) {
+      var subMenu = item.querySelector('.js_top-menu-sublist');
+      if (!subMenu) return;
+      var link = item.querySelector('a');
+      link.addEventListener('click', function (e) {
+        // desktop — ничего не перехватываем
+        if (!isMobile()) return;
+
+        // если подменю закрыто → открыть
+        if (!item.classList.contains('is-open')) {
+          e.preventDefault();
+
+          // закрываем остальные
+          items.forEach(function (i) {
+            return i.classList.remove('is-open');
+          });
+          item.classList.add('is-open');
+        }
+        // если уже открыто — переход по ссылке произойдет
+      });
+    });
+    window.addEventListener('resize', function () {
+      if (!isMobile()) {
+        list.classList.remove('is-open');
+        items.forEach(function (i) {
+          return i.classList.remove('is-open');
+        });
       }
     });
   }
@@ -60,10 +137,7 @@ __webpack_require__(296);
 __webpack_require__(635);
 var bootstrap = window.bootstrap = __webpack_require__(336);
 
-//require('/node_modules/swiper/swiper-bundle.min.js');
 //require('choices.js/public/assets/scripts/choices.min.js');
-
-var Swiper = (__webpack_require__(236)/* ["default"] */ .A);
 
 // Либа для инициализации модулей https://www.npmjs.com/package/module-dispatcher
 // Вызывает метод init() у модулей на указанных страницах
@@ -91,6 +165,7 @@ app.docReady = function (f) {
 
 // базовые модули
 app.defaultInit = __webpack_require__(222);
+app.topMenu = __webpack_require__(397);
 
 // Блоки
 app.defaultInit = __webpack_require__(538);
@@ -99,6 +174,7 @@ app.defaultInit = __webpack_require__(538);
 // если модуль нужен только для одной страницы - подключать через ModuleDispatcher на конкретной странице
 module.exports = app;
 app.defaultInit.init();
+app.topMenu.init();
 
 /***/ },
 

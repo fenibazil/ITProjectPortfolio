@@ -9,7 +9,7 @@ module.exports = (function () {
             loop: true,
 
             autoplay: {
-                delay: 3000, // 5 секунд
+                delay: 5000, // 5 секунд
                 disableOnInteraction: false, // не останавливать после клика
                 pauseOnMouseEnter: true,
             },

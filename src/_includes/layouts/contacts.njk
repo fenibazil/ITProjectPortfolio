@@ -3,20 +3,9 @@
 {% include 'snippets/head.njk' %}
 <body>
 {% include 'snippets/header.njk' %}
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div>
-          <h1>{{ title }}</h1>
-
-          <h2>{{ subtitle }}</h2>
-
-          {{ content }}
-
-        </div>
-      </div>
-    </div>
 
 {% include 'snippets/portfolio-contact-us.njk' %}
+{{ content }}
 {% include 'snippets/footer.njk' %}
 </body>
 </html>

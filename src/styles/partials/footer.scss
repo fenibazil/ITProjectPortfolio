@@ -1,0 +1,21 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    color: $white-design;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    background: $black-design;
+
+    &__logotype {
+        text-decoration: none;
+        border: none;
+        color: $white-design;
+
+        &:hover {
+            text-decoration: none;
+            border: none;
+        }
+    }
+}

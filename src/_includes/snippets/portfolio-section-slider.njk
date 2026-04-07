@@ -1,0 +1,21 @@
+<div class="" data-module="portfolioSectionSlider"></div>
+{% for section in portfolioSections %}
+  <section class="portfolio-section">
+    <div class="portfolio-section_text">
+      <h2>{{ section.title }}</h2>
+      <p>{{ section.text }}</p>
+    </div>
+
+    {% if section.images and section.images.length %}
+      <div class="portfolio-section-slider swiper js_portfolio-section-slider" id="portfolio-slider-{{ loop.index }}">
+        <div class="swiper-wrapper">
+          {% for image in section.images %}
+            <div class="swiper-slide portfolio-section-slider_slide">
+              <img src="{{ metadata.siteURLPostfix }}{{ image }}" alt="{{ section.title }}--{{ loop.index }}" loading="lazy">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endfor %}

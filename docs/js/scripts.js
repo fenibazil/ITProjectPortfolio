@@ -38,6 +38,36 @@ module.exports = function () {
 
 /***/ },
 
+/***/ 196
+(module, __unused_webpack_exports, __webpack_require__) {
+
+var Swiper = (__webpack_require__(236)/* ["default"] */ .A);
+var _require = __webpack_require__(94),
+  Navigation = _require.Navigation,
+  Pagination = _require.Pagination,
+  Autoplay = _require.Autoplay;
+module.exports = function () {
+  function init() {
+    var portfolioSectionSlider = new Swiper('.js_portfolio-section-slider', {
+      modules: [Navigation, Autoplay],
+      slidesPerView: 1,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        // 5 секунд
+        disableOnInteraction: false,
+        // не останавливать после клика
+        pauseOnMouseEnter: true
+      }
+    });
+  }
+  return {
+    init: init
+  };
+}();
+
+/***/ },
+
 /***/ 538
 (module, __unused_webpack_exports, __webpack_require__) {
 
@@ -168,13 +198,15 @@ app.defaultInit = __webpack_require__(222);
 app.topMenu = __webpack_require__(397);
 
 // Блоки
-app.defaultInit = __webpack_require__(538);
+app.portfolioSlider = __webpack_require__(538);
+app.portfolioSectionSlider = __webpack_require__(196);
 
 // Инициализация нужных модулей на всех страницах, отключать/подключать модули по необходимости
 // если модуль нужен только для одной страницы - подключать через ModuleDispatcher на конкретной странице
 module.exports = app;
 app.defaultInit.init();
 app.topMenu.init();
+app.init();
 
 /***/ },
 

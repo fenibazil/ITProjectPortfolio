@@ -39,7 +39,8 @@ app.topMenu = require('./partials/top-menu');
 
 
 // Блоки
-app.defaultInit = require('./partials/portfolio-slider');
+app.portfolioSlider = require('./partials/portfolio-slider');
+app.portfolioSectionSlider = require('./partials/portfolio-section-slider');
 
 // Инициализация нужных модулей на всех страницах, отключать/подключать модули по необходимости
 // если модуль нужен только для одной страницы - подключать через ModuleDispatcher на конкретной странице
@@ -47,3 +48,5 @@ module.exports = app;
 
 app.defaultInit.init();
 app.topMenu.init();
+
+app.init();

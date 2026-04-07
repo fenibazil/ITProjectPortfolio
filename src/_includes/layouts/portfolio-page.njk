@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+{% include 'snippets/head.njk' %}
+<body>
+{% include 'snippets/header.njk' %}
+<div class="main-banner container-fluid">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <h1>{{ title }}</h1>
+
+          <h2>{{ subtitle }}</h2>
+        </div>
+        <div class="col-12 col-lg-6">
+          <img src="{{ mainBanner }}" alt="{{ title }}">
+        </div>
+      </div>
+</div>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12">
+
+          {{ content }}
+
+        </div>
+      </div>
+    </div>
+
+{% include 'snippets/portfolio-section-slider.njk' %}
+{% include 'snippets/portfolio-contact-us.njk' %}
+{% include 'snippets/footer.njk' %}
+</body>
+</html>

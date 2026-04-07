@@ -9,7 +9,9 @@ $red-design: #E90037;
 // shadow
 
 // border
-$anchor-border: 1px solid $black-design;
+$anchor-border: 1px dashed $white-design;
+$anchor-border-color: 1px dashed $black-design;
+$default-border: 1px solid $black-design;
 
 
 // system colors

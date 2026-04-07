@@ -1,4 +1,5 @@
 .top-menu {
+    z-index: 10001;
 
   &__toggle {
     display: block;
@@ -15,7 +16,7 @@
       left: 0;
       width: 100%;
       height: 3px;
-      background: #000;
+      background: $white-design;
       transition: .3s;
       will-change: transform;
     }
@@ -52,8 +53,8 @@
     display: none;
     list-style: none;
     margin: 0;
-    padding: 0;
-    background-color: $white-design;
+    padding: 12px 0 0;
+    background: $black-design;
     z-index: 999;
 
     &.is-open {
@@ -76,9 +77,16 @@
     align-items: baseline;
   }
   &__item-link {
-    padding: 8px;
+    border: none;
+    padding: 8px 12px;
+    color: $white-design;
+
     @include respond-to(lg) {
       padding: 0;
+    }
+
+    &:hover {
+      border: none;
     }
   }
 
@@ -86,11 +94,11 @@
   &__sublist {
     list-style: none;
     margin: 0;
-    padding: 10px 0;
+    padding: 0 0 12px 8px;
     display: none;
     flex-direction: column;
-    background-color: $white-design;
-    margin-left: 8px;
+    gap: 8px;
+    background: $black-design;
     
 
     @include respond-to(lg) {
@@ -98,6 +106,8 @@
       top: 100%;
       left: 0;
       margin: 0;
+      padding: 8px;
+      border-radius: 0 0 4px 4px;
     }
   }
 
@@ -107,7 +117,7 @@
 
   @include respond-to(lg) {
     &__item:hover > &__sublist {
-      display: block;
+      display: flex;
     }
   }
 }

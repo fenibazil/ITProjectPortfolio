@@ -2,11 +2,19 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
   font-size: calc(var(--bs-body-font-size) * 2);
   @include respond-to(lg) {
     font-size: var(--bs-body-font-size);
   }
 }
+.content {
+  flex: 1;
+}
+
 
 p {
 

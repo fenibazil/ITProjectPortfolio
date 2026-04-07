@@ -3,11 +3,13 @@
 {% include 'snippets/head.njk' %}
 <body>
 {% include 'snippets/header.njk' %}
+<div class="content">
 {% include 'snippets/portfolio-slider.njk' %}
 
 {{ content | safe}}
 
 {% include 'snippets/portfolio-contact-us.njk' %}
+</div>
 {% include 'snippets/footer.njk' %}
 </body>
 

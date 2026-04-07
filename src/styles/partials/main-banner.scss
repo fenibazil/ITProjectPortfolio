@@ -1,3 +1,7 @@
 .main-banner {
     margin-top: 20px;
+    margin-bottom: 20px;
+    @include respond-to(lg) {
+        margin-bottom: 0;
+    }
 }

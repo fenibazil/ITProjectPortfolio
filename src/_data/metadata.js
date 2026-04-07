@@ -1,9 +1,9 @@
 export default {
 	language: "ru",
-    sitePostfixURL: "/ITProjectPortfolio",
+	siteURLPostfix: "/ITProjectPortfolio",
 	author: {
-		name: "Your Name Here",
-		email: "youremailaddress@example.com",
-		url: "https://example.com/about-me/"
+		name: "Asonov Vasiliy",
+		email: "feni9214273281@gmail.com",
+		url: "https://fenibazil.github.io/ITProjectPortfolio/"
 	}
 }

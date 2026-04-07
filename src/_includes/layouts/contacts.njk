@@ -4,8 +4,9 @@
 <body>
 {% include 'snippets/header.njk' %}
 
+{{ content | safe}}
+
 {% include 'snippets/portfolio-contact-us.njk' %}
-{{ content }}
 {% include 'snippets/footer.njk' %}
 </body>
 </html>

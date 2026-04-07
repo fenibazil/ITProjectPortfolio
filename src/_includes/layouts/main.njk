@@ -3,14 +3,12 @@
 {% include 'snippets/head.njk' %}
 <body>
 {% include 'snippets/header.njk' %}
-    <div class="container">
+    <div class="container mt-5">
       <div class="row d-flex justify-content-center">
         <div>
           <h1>{{ title }}</h1>
 
-          <h2>{{ subtitle }}</h2>
-
-          {{ content }}
+          {{ content | safe}}
 
         </div>
       </div>

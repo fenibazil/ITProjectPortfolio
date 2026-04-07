@@ -5,7 +5,7 @@
 {% include 'snippets/header.njk' %}
 {% include 'snippets/portfolio-slider.njk' %}
 
-{{ content }}
+{{ content | safe}}
 
 {% include 'snippets/portfolio-contact-us.njk' %}
 {% include 'snippets/footer.njk' %}
